@@ -1,9 +1,7 @@
 from tcping import Ping
+l=open('tcpdns.in','r').read().split()
 str=""
-while True:
-    dns=input()
-    if dns=='0':
-        break
+for dns in l:
     if Ping(dns,53):
         str+='"'+dns+'":53,\n'
-print(str)
+open('tcpdns.out','w').write(str)
