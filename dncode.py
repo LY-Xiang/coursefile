@@ -37,4 +37,4 @@ def aeseed(len:"int")->bytes:
         seed+=bytes([getrandbits(8)])
     return seed
 #print(enaes("jYTnTZ+zBRnWjJuaeeewNle/qsA714PT", "11ff4514191ergdrgrgrdfrdhggggg9810"))
-print(aeseed(32))
+#print(aeseed(32))
