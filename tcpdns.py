@@ -5,5 +5,5 @@ while True:
     if dns=='0':
         break
     if Ping(dns,53):
-        str+='"'+dns+'",\n'
+        str+='"'+dns+'":53,\n'
 print(str)
