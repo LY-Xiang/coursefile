@@ -1,3 +1,4 @@
+#!bin/bash
 echo "-->set val'err'... " && typeset -i err=0
 echo "~~>git pull..." && git pull
 err=$err+$?
