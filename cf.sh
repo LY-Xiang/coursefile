@@ -1,4 +1,4 @@
-typeset -i err=0 
+echo "-->set val'err'... " && typeset -i err=0
 echo "~~>git pull..." && git pull
 err=$err+$?
 echo "~~>git add..." && git add .
