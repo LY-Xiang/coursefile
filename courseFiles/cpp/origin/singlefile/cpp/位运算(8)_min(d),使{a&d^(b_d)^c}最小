@@ -1,0 +1,18 @@
+#include <cstdio>
+#include <bitset>
+int main(void)
+{
+	unsigned long n, in;
+	std::bitset<32> a, b, c;
+	for (scanf("%lu", &n); n; n--)
+	{
+		scanf("%lu", &in);
+		a = in;
+		scanf("%lu", &in);
+		b = in;
+		scanf("%lu", &in);
+		c = in;
+		printf("%lu\n", ((a | b | c) & (~c ^ (a | b))).to_ulong());
+	}
+	return 0;
+}

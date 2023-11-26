@@ -1,0 +1,45 @@
+vga.o: vga.cpp ../../include/dosbox.h ../../config.h \
+ ../../include/logging.h ../../include/video.h ../../include/pic.h \
+ ../../include/vga.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/string.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/features.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/stdc-predef.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/predefs.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/sys/cdefs.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/wordsize.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs-hard.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/4.7.2/include/stddef.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/xlocale.h
+
+../../include/dosbox.h:
+
+../../config.h:
+
+../../include/logging.h:
+
+../../include/video.h:
+
+../../include/pic.h:
+
+../../include/vga.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/string.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/features.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/stdc-predef.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/predefs.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/sys/cdefs.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/wordsize.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs-hard.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/4.7.2/include/stddef.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/xlocale.h:

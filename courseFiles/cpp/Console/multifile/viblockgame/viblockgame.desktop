@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=viblockgame
+GenericName=Text-mode Blockgame
+Exec=blockgame -w 80
+Icon=viblockgame
+Categories=Game;BlocksGame;
+Terminal=true

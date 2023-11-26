@@ -1,0 +1,50 @@
+int10_modes.o: int10_modes.cpp \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/string.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/features.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/stdc-predef.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/predefs.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/sys/cdefs.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/wordsize.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs-hard.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/4.7.2/include/stddef.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/xlocale.h \
+ ../../include/dosbox.h ../../config.h ../../include/logging.h \
+ ../../include/mem.h ../../include/inout.h int10.h ../../include/vga.h \
+ ../../include/mouse.h
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/string.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/features.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/stdc-predef.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/predefs.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/sys/cdefs.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/wordsize.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs-hard.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/4.7.2/include/stddef.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/xlocale.h:
+
+../../include/dosbox.h:
+
+../../config.h:
+
+../../include/logging.h:
+
+../../include/mem.h:
+
+../../include/inout.h:
+
+int10.h:
+
+../../include/vga.h:
+
+../../include/mouse.h:

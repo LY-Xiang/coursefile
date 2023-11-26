@@ -1,0 +1,13 @@
+#include <cstdio>
+int main()
+{
+	int n,i=2;
+	scanf("%d",&n);
+	for(;n%i;i++);
+	printf("%d",i);
+	n/=i;
+	for(;n>>1;i++)
+		for(;n%i==0;n/=i)
+			printf("*%d",i);
+	return 0;
+}
