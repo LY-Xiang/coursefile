@@ -1,4 +1,4 @@
-err=0
+typeset -i err=0 
 echo "~~>git pull..." && git pull
 err=$err+$?
 echo "~~>git add..." && git add .
