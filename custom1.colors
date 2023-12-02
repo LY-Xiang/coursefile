@@ -1,0 +1,21 @@
+# powerlevel10k.colors
+# Color theme from LY-Xiang
+foreground=#cccccc
+background=#1e1e1e1e1e1e
+cursor=#cccccc
+color0=#6a6a78787a7a
+color1=#e9e965653b3b
+color2=#3939e9e9a8a8
+color3=#e5e5b6b68484
+color4=#4444aaaae6e6
+color5=#e1e175759999
+color6=#3d3dd5d5e7e7
+color7=#c3c3dddde1e1
+color8=#595984848989
+color9=#e6e650502929
+color10=#0000ffff9a9a
+color11=#e8e894944040
+color12=#00009a9afbfb
+color13=#ffff57578f8f
+color14=#5f5fffffffff
+color15=#d9d9fbfbfffd
