@@ -25,7 +25,7 @@ int main()
         printf("%lld*%lld=%lld", a, b, a * b);
         break;
     case '/':
-        printf("%lld/%lld=%lld......%lld", a, b, a / b, a - a / b * b);
+        printf("%lld/%lld=%lld......%lld", a, b, a / b, a % b);
         break;
     default:
         printf("Wrong operation!");
