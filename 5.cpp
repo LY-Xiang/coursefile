@@ -34,5 +34,4 @@ void exgcd(T a, T b, T &x, T &y)
 		y -= a / b * x;
 	}
 	return;
-}n;
 }
