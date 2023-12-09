@@ -1,1 +1,0 @@
-time zsh ./git.zsh
