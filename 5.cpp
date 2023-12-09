@@ -16,7 +16,7 @@ int main()
 	x = (x % m + m) % m * a % m;
 	for (i = 1; i <= n; i++)
 	{
-		printf("%lld ", i * x % m);
+		printf("%lld ", i * (unsigned long long) x % m);
 	}
 	return 0;
 }
