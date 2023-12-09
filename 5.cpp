@@ -1,5 +1,5 @@
 #include <cstdio>
-typedef signed long long LLD;
+typedef long long LLD;
 template <class T>
 void exgcd(T, T, T &, T &);
 int main()
