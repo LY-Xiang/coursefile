@@ -1,5 +1,5 @@
 import userSystemCore as uSC
-from userSystemCUIMenu import *
+from userSystemCLIMenu import *
 
 uSC.loadData()
 menu = ["Exit", "Sign up", "Sign in"]
