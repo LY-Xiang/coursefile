@@ -1,1 +1,7 @@
-print(int(input('a:'))*int(input('b:')))
+def
+max(a,b):
+    
+raw=input()
+num=list()
+op=list()
+t=raw.find()
