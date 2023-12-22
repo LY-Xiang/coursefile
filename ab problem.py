@@ -31,10 +31,10 @@ t=max([op.find('+'), op.find('-')])
 while t != -1:
     if op[t] == '+':
         num[t] += num[t + 1]
-     else:
-         num[t] -= num[t + 1]
-     del op[t]                                              
-     del num[t + 1]                                         
-     t=max([op.find('+'), op.find('-')])
+    else:
+        num[t] -= num[t + 1]
+    del op[t]                                              
+    del num[t + 1]                                         
+    t=max([op.find('+'), op.find('-')])
 
 print('%.02f' % (int(num[0] * (10 ** 2) + 0.5) / (10 ** 2)))
