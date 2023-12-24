@@ -13,4 +13,4 @@ msys2 'sed -i "s#https\?://mirror.msys2.org/#https://mirrors.tuna.tsinghua.edu.c
 msys2 'pacman --noconfirm -Syuu'
 msys2 'pacman --noconfirm -Scc'
 msys2 'pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain'
-
+msys2 'pacman --noconfirm -Scc'
