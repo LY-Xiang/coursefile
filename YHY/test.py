@@ -16,7 +16,7 @@ for times in range(1,10):
 else:
     print("Failed")
 
-if password == 1234:
+if password in Password:
     print("Welcome to caluanlar")
     none = True
     while none:
