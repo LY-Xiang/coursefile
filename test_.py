@@ -1,6 +1,6 @@
 for times in range(1,10):
     try:
-        password = int(input("Password plz"))
+        paswordinput("Password plz")
     except:
         if times >= 5:
             print("You have been wrong with", times, "times")
