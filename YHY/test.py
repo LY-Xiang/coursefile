@@ -1,3 +1,4 @@
+Password = (1234,4321)
 for times in range(1,10):
     try:
         password = int(input("Password plz"))
@@ -6,7 +7,7 @@ for times in range(1,10):
             print("You have been wrong with", times, "times")
         print("Wrong password")
     else:
-        if password == 1234:
+        if password in Password:
             print("Password Successful")
             break
         if times >= 5:
