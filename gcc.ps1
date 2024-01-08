@@ -16,7 +16,7 @@ C:/msys64/usr/bin/bash.exe -lc 'printf "\nexport LANG=zh_CN.UTF-8" >> .bashrc'#�
 C:/msys64/usr/bin/bash.exe -lc 'sed -i "s#https\?://mirror.msys2.org/#https://mirrors.tuna.tsinghua.edu.cn/msys2/#g" /etc/pacman.d/mirrorlist*'#设置清华镜像源
 C:/msys64/usr/bin/bash.exe -lc 'pacman --noconfirm -Syuu'#全面更新
 C:/msys64/usr/bin/bash.exe -lc 'pacman --noconfirm -Syuu --needed base-devel mingw-w64-ucrt-x86_64-toolchain'#更新并安装gcc
-C:/msys64/usr/bin/bash.exe -lc 'pacman --noconfirm -Sy clang'#安装clang
+C:/msys64/usr/bin/bash.exe -lc 'pacman --noconfirm -S clang'#安装clang
 C:/msys64/usr/bin/bash.exe -lc 'pacman --noconfirm -Scc'#清理安装缓存
 
 #安装python
