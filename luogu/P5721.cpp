@@ -6,7 +6,7 @@ int main()
     for (i = n; i; i--)
     {
         for (j = i; j; j--)
-            printf("%02d", ++k);
+            printf("%02hu", ++k);
         putchar('\n');
     }
     return 0;
