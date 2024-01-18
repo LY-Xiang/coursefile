@@ -5,3 +5,5 @@ exec/
 *.in
 *.out
 *.exe
+test.*
+tests/
