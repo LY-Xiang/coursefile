@@ -1,4 +1,4 @@
-from os import system, path
+from os import system, path, makedirs
 import hashlib as hash
 from base64 import standard_b64decode as b64decode, standard_b64encode as b64encode
 from ast import literal_eval as eval
@@ -115,17 +115,14 @@ def de(key: "bytes", dat: "str") -> str:
 if not path.exists("scoresys.dat"):
     key = setPassword()
     if key != b"\0":
-        file = open("scoresys.dat", "w")
-        file.write(b64encode(key).decode())
-        file.write("\n")
-        file.write(en(key, str({})))
-        file.close()
+        with open("scoresys.dat", "w") as file:
+            file.writelines([b64encode(key).decode() + "\n", en(key, str({})) + "\n"])
     else:
         exit(-1)
 t = time()
-logf = open(
-    "logs/" + str(t.tm_year) + "/" + str(t.tm_mon) + "/" + str(t.tm_mday) + ".log", "a"
-)
+logdir = "logs/" + str(t.tm_year) + "/" + str(t.tm_mon) + "/"
+os.makedirs(logdir, exist_ok=True)
+logf = open(logdir + str(t.tm_mday) + ".log", "a")
 
 
 def log(msg: "str"):
@@ -135,21 +132,21 @@ def log(msg: "str"):
     )
 
 
-file = open("scoresys.dat", "r")
-key = b64decode(file.readline()[:-1].encode())
-if not checkPassword(key):
-    exit(-1)
+with open("scoresys.dat", "r") as file:
+    key = b64decode(file.readline()[:-1].encode())
+    if not checkPassword(key):
+        exit(-1)
+    log("登录")
+    data = de(key, file.readline()).encode()
+    while data[-1] == 0:
+        data = data[:-1]
+    data = eval(data.decode())
 
 
 def pause():
     input("按Enter键继续...")
 
 
-log("登录")
-data = de(key, file.readline()).encode()
-while data[-1] == 0:
-    data = data[:-1]
-data = eval(data.decode())
 menu = ["保存并退出", "分数查询", "分数修改", "小组修改", "修改密码"]
 while True:
     cls()
@@ -161,10 +158,9 @@ while True:
     cl()
     cls()
     if choose == "0":
-        file = open("scoresys.dat", "w")
-        file.write(b64encode(key).decode())
-        file.write("\n")
-        file.write(en(key, str(data)))
+        with open("scoresys.dat", "w") as file:
+            file.writelines([b64encode(key).decode() + "\n", en(key, str(data)) + "\n"])
+        log("退出")
         exit(0)
     elif choose == "1":
         k = 0
