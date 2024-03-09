@@ -8,12 +8,22 @@ if "win" in sys().lower():
     windll.kernel32.SetConsoleMode(k.GetStdHandle(-11), 7)
 
 
+def csi(e, *c):
+    print(end = "\033[")
+    if c != ():
+        print(c[0], end = "")
+        c = c[1:]
+        for i in c:
+            print(end = ";")
+            print(i, end = "")
+    print(e, end = "")
+
 def color(fore: "int" = 39, back: "int" = 49):
-    print("\033[" + fore, back, style, sep = ";", end = "m") 
+    csi("m", fore, back) 
 
 
 def style(style: "int" = 0):
-    print("\033[" + style, end = "m")
+    csi("m", style)
 
 
 def cl():
@@ -21,12 +31,12 @@ def cl():
 
 
 def color256(mode: "int", r: "int", g: "int", b: "int"):
-    print("\033[" + mode, 2, r, g, b, sep = ";", end = "m")
+    print("m", mode, 2, r, g, b)
 
 
 def cls():
-    print("\033[2", end = "J")
-
+    csi("J", 2)
+    csi("H")
 
 try:
     from Crypto.Cipher import AES
