@@ -3,23 +3,27 @@ import hashlib as hash
 from base64 import standard_b64decode as b64decode, standard_b64encode as b64encode
 from ast import literal_eval as eval
 from platform import system as sys
+
 if "win" in sys().lower():
     from ctypes import windll
-    windll.kernel32.SetConsoleMode(k.GetStdHandle(-11), 7)
+
+    k = windll.kernel32
+    k.SetConsoleMode(k.GetStdHandle(-11), 7)
 
 
 def csi(e, *c):
-    print(end = "\033[")
+    print(end="\033[")
     if c != ():
-        print(c[0], end = "")
+        print(c[0], end="")
         c = c[1:]
         for i in c:
-            print(end = ";")
-            print(i, end = "")
-    print(e, end = "")
+            print(end=";")
+            print(i, end="")
+    print(e, end="")
+
 
 def color(fore: "int" = 39, back: "int" = 49):
-    csi("m", fore, back) 
+    csi("m", fore, back)
 
 
 def style(style: "int" = 0):
@@ -38,6 +42,7 @@ def cls():
     csi("J", 2)
     csi("H")
 
+
 try:
     from Crypto.Cipher import AES
 except ImportError:
@@ -45,14 +50,16 @@ except ImportError:
     system(
         "python -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip"
     )
-    system("python -m pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple")
     system(
-            'python -m pip config set global.extra-index-url "https://mirrors.cernet.edu.cn/pypi/simple https://mirrors.cernet.edu.cn/pypi/web/simple https://mirrors.mirrorz.org/pypi/simple https://mirrors.mirrorz.org/pypi/web/simple"'
+        "python -m pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple"
+    )
+    system(
+        'python -m pip config set global.extra-index-url "https://mirrors.cernet.edu.cn/pypi/simple https://mirrors.cernet.edu.cn/pypi/web/simple https://mirrors.mirrorz.org/pypi/simple https://mirrors.mirrorz.org/pypi/web/simple"'
     )
     system("python -m pip install pycryptodome")
     color(33)
     style(1)
-    print("\请重新启动!")
+    print("请重新启动!")
     cl()
     exit(0)
 
@@ -142,7 +149,7 @@ while True:
         file.write("\n")
         file.write(en(key, str(data)))
         exit(0)
-    elif choose == "1": 
+    elif choose == "1":
         k = 0
         print("┌────┬──────────────────────────────┬─────┐")
         for i, j in sorted(data.items(), key=lambda kv: (kv[1], kv[0])):
