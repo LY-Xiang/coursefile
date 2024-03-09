@@ -8,7 +8,9 @@ if "win" in sys().lower():
     from ctypes import windll
 
     k = windll.kernel32
-    k.SetConsoleMode(k.GetStdHandle(-11), 7)
+    k.SetConsoleMode(
+        k.GetStdHandle(k.STD_OUTPUT_HANDLE), k.ENABLE_VIRTUAL_TERMINAL_PROCESSING
+    )
 
 
 def csi(e, *c):
