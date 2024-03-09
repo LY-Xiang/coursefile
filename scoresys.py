@@ -3,6 +3,7 @@ import hashlib as hash
 from base64 import standard_b64decode as b64decode, standard_b64encode as b64encode
 from ast import literal_eval as eval
 from platform import system as sys
+from time import localtime as time
 
 if "win" in sys().lower():
     from ctypes import windll
@@ -121,6 +122,19 @@ if not path.exists("scoresys.dat"):
         file.close()
     else:
         exit(-1)
+t = time()
+logf = open(
+    "logs/" + str(t.tm_year) + "/" + str(t.tm_mon) + "/" + str(t.tm_mday) + ".log", "a"
+)
+
+
+def log(msg: "str"):
+    t = time()
+    logf.write(
+        "[" + str(t.hour) + ":" + str(t.min) + ":" + str(t.sec) + "] " + msg + "\n"
+    )
+
+
 file = open("scoresys.dat", "r")
 key = b64decode(file.readline()[:-1].encode())
 if not checkPassword(key):
@@ -131,6 +145,7 @@ def pause():
     input("按Enter键继续...")
 
 
+log("登录")
 data = de(key, file.readline()).encode()
 while data[-1] == 0:
     data = data[:-1]
@@ -171,6 +186,7 @@ while True:
                     data[group] += int(score)
                     color(32)
                     print("修改成功.")
+                    log(group + "修改分数" + f"{score:+d}")
                 else:
                     color(33)
                     print("修改失败.")
@@ -191,6 +207,7 @@ while True:
                     data.pop(group)
                     color(32)
                     print("删除成功.")
+                    log(group + "被删除")
                 else:
                     color(33)
                     print("删除失败.")
@@ -201,6 +218,7 @@ while True:
                     data[group] = 0
                     color(32)
                     print("创建成功.")
+                    log(group + "被创建")
                 else:
                     color(33)
                     print("创建失败.")
@@ -214,6 +232,7 @@ while True:
                 key = newkey
                 color(32)
                 print("密码修改成功.")
+                log("密码被修改\n当前数据:\n" + str(data))
             else:
                 color(33)
                 print("密码修改失败.")
