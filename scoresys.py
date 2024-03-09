@@ -7,9 +7,9 @@ from platform import system as sys
 if "win" in sys().lower():
     from ctypes import windll
 
-    k = windll.kernel32
-    k.SetConsoleMode(
-        k.GetStdHandle(k.STD_OUTPUT_HANDLE), k.ENABLE_VIRTUAL_TERMINAL_PROCESSING
+    windll.kernel32.SetConsoleMode(
+        windll.kernel32.GetStdHandle(windll.kernel32.STD_OUTPUT_HANDLE),
+        windll.kernel32.ENABLE_VIRTUAL_TERMINAL_PROCESSING,
     )
 
 
