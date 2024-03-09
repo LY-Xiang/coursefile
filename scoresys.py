@@ -2,10 +2,30 @@ from os import system, path
 import hashlib as hash
 from base64 import standard_b64decode as b64decode, standard_b64encode as b64encode
 from ast import literal_eval as eval
+from platform import system as sys
+if "win" in sys().lower():
+    from ctypes import windll
+    windll.kernel32.SetConsoleMode(k.GetStdHandle(-11), 7)
+
+
+def color(fore: "int" = 39, back: "int" = 49):
+    print("\033[" + fore, back, style, sep = ";", end = "m") 
+
+
+def style(style: "int" = 0):
+    print("\033[" + style, end = "m")
 
 
 def cl():
-    print("\033[0m", end="")
+    style(0)
+
+
+def color256(mode: "int", r: "int", g: "int", b: "int"):
+    print("\033[" + mode, 2, r, g, b, sep = ";", end = "m")
+
+
+def cls():
+    print("\033[2", end = "J")
 
 
 try:
@@ -20,7 +40,10 @@ except ImportError:
             'python -m pip config set global.extra-index-url "https://mirrors.cernet.edu.cn/pypi/simple https://mirrors.cernet.edu.cn/pypi/web/simple https://mirrors.mirrorz.org/pypi/simple https://mirrors.mirrorz.org/pypi/web/simple"'
     )
     system("python -m pip install pycryptodome")
-    print("\033[33m\033[1m请重新启动!\033[0m")
+    color(33)
+    style(1)
+    print("\请重新启动!")
+    cl()
     exit(0)
 
 
@@ -36,7 +59,9 @@ def setPassword() -> bytes:
                 "sha256", password.encode(), b"114514hfsz1919810", 500_000
             )
         else:
-            print(f"\033[31m密码错误!你还有{i}次机会.\033[0m")
+            color(31)
+            print(f"密码错误!你还有{i}次机会.")
+            cl()
     return b"\0"
 
 
@@ -50,7 +75,9 @@ def checkPassword(key: "bytes") -> bool:
         if check == key:
             return True
         else:
-            print(f"\033[31m密码错误!你还有{i}次机会.\033[0m")
+            color(31)
+            print(f"密码错误!你还有{i}次机会.")
+            cl()
     return False
 
 
@@ -81,10 +108,6 @@ if not checkPassword(key):
     exit(-1)
 
 
-def cls():
-    print("\033[2J\033[H", end="")
-
-
 def pause():
     input("按Enter键继续...")
 
@@ -109,7 +132,7 @@ while True:
         file.write("\n")
         file.write(en(key, str(data)))
         exit(0)
-    elif choose == "1":
+    elif choose == "1": 
         k = 0
         print("┌────┬──────────────────────────────┬─────┐")
         for i, j in sorted(data.items(), key=lambda kv: (kv[1], kv[0])):
@@ -127,13 +150,17 @@ while True:
                 cl()
                 if confirm == group:
                     data[group] += int(score)
-                    print("\033[32m修改成功.\033[0m")
+                    color(32)
+                    print("修改成功.")
                 else:
-                    print("\033[33m修改失败.\033[0m")
+                    color(33)
+                    print("修改失败.")
             else:
-                print("\033[31m分数输入不正确!\033[0m")
+                color(31)
+                print("分数输入不正确!")
         else:
-            print("\033[31m小组不存在!\033[0m")
+            color(31)
+            print("小组不存在!")
     elif choose == "3":
         group = input("输入小组代号(未有小组将被创建,已有小组将被删除): \033[1m")
         cl()
@@ -143,29 +170,39 @@ while True:
                 cl()
                 if confirm == group:
                     data.pop(group)
-                    print("\033[32m删除成功.\033[0m")
+                    color(32)
+                    print("删除成功.")
                 else:
-                    print("\033[33m删除失败.\033[0m")
+                    color(33)
+                    print("删除失败.")
             else:
                 confirm = input("确认创建?(再次输入小组代号以确认): \033[1m")
                 cl()
                 if confirm == group:
                     data[group] = 0
-                    print("\033[32m创建成功.\033[0m")
+                    color(32)
+                    print("创建成功.")
                 else:
-                    print("\033[33m创建失败.\033[0m")
+                    color(33)
+                    print("创建失败.")
         else:
-            print("\033[31m小组代号不合规!(由字母和数字组成,30字符以内)\033[0m")
+            color(31)
+            print("小组代号不合规!(由字母和数字组成,30字符以内)")
     elif choose == "4":
         if checkPassword(key):
             newkey = setPassword()
             if newkey != b"\0":
                 key = newkey
-                print("\033[32m密码修改成功.\033[0m")
+                color(32)
+                print("密码修改成功.")
             else:
-                print("\033[31m密码修改失败.\033[0m")
+                color(33)
+                print("密码修改失败.")
         else:
-            print("\033[31m密码修改失败.\033[0m")
+            color(31)
+            print("密码修改失败.")
     else:
-        print("\033[31m错误的选项,请重新输入!\033[0m")
+        color(31)
+        print("错误的选项,请重新输入!")
+    cl()
     pause()
