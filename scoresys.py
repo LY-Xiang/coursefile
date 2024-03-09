@@ -121,14 +121,22 @@ if not path.exists("scoresys.dat"):
         exit(-1)
 t = time()
 logdir = "logs/" + str(t.tm_year) + "/" + str(t.tm_mon) + "/"
-os.makedirs(logdir, exist_ok=True)
+makedirs(logdir, exist_ok=True)
 logf = open(logdir + str(t.tm_mday) + ".log", "a")
 
 
 def log(msg: "str"):
     t = time()
     logf.write(
-        "[" + str(t.hour) + ":" + str(t.min) + ":" + str(t.sec) + "] " + msg + "\n"
+        "["
+        + str(t.tm_hour)
+        + ":"
+        + str(t.tm_min)
+        + ":"
+        + str(t.tm_sec)
+        + "] "
+        + msg
+        + "\n"
     )
 
 
@@ -182,7 +190,7 @@ while True:
                     data[group] += int(score)
                     color(32)
                     print("修改成功.")
-                    log(group + "修改分数" + f"{score:+d}")
+                    log(group + "分数" + f"{int(score):+d}")
                 else:
                     color(33)
                     print("修改失败.")
