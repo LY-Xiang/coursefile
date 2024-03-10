@@ -2,6 +2,7 @@ from os import system, path, makedirs
 import hashlib as hash
 from base64 import standard_b64decode as b64decode, standard_b64encode as b64encode
 from ast import literal_eval as eval
+from sys import exit
 from platform import system as sys
 from time import localtime as time
 
@@ -9,20 +10,19 @@ if "win" in sys().lower():
     from ctypes import windll
 
     windll.kernel32.SetConsoleMode(
-        windll.kernel32.GetStdHandle(windll.kernel32.STD_OUTPUT_HANDLE),
-        windll.kernel32.ENABLE_VIRTUAL_TERMINAL_PROCESSING,
+        windll.kernel32.GetStdHandle(STD_OUTPUT_HANDLE := -11),
+        ENABLE_VIRTUAL_TERMINAL_PROCESSING := 7,
     )
 
 
 def csi(e, *c):
-    print(end="\033[")
-    if c != ():
-        print(c[0], end="")
+    print(end="\x1b[")
+    if c != tuple():
+        print(end=f"{c[0]}")
         c = c[1:]
         for i in c:
-            print(end=";")
-            print(i, end="")
-    print(e, end="")
+            print(end=f";{i}")
+    print(end=f"{e}")
 
 
 def color(fore: "int" = 39, back: "int" = 49):
@@ -44,6 +44,14 @@ def color256(mode: "int", r: "int", g: "int", b: "int"):
 def cls():
     csi("J", 2)
     csi("H")
+
+
+def In(msg: "str") -> str:
+    return input(f"{msg}\x1b[1m")
+
+
+def pause():
+    input("按Enter键继续...")
 
 
 try:
@@ -69,10 +77,10 @@ except ImportError:
 
 def setPassword() -> bytes:
     cls()
-    password = input("设置密码: \033[1m")
+    password = In("设置密码: ")
     cl()
     for i in range(2, -1, -1):
-        check = input("确认密码: \033[1m")
+        check = In("确认密码: ")
         cl()
         if check == password:
             return hash.pbkdf2_hmac(
@@ -89,7 +97,7 @@ def checkPassword(key: "bytes") -> bool:
     cls()
     for i in range(2, -1, -1):
         check = hash.pbkdf2_hmac(
-            "sha256", input("输入密码: \033[1m").encode(), b"114514hfsz1919810", 500_000
+            "sha256", In("输入密码: ").encode(), b"114514hfsz1919810", 500_000
         )
         cl()
         if check == key:
@@ -116,28 +124,18 @@ if not path.exists("scoresys.dat"):
     key = setPassword()
     if key != b"\0":
         with open("scoresys.dat", "w") as file:
-            file.writelines([b64encode(key).decode() + "\n", en(key, str({})) + "\n"])
+            file.write(f"{b64encode(key).decode()}\n{en(key, str({}))}\n")
     else:
         exit(-1)
 t = time()
-logdir = "logs/" + str(t.tm_year) + "/" + str(t.tm_mon) + "/"
+logdir = f"logs/{t.tm_year:04d}/{t.tm_mon:02d}/"
 makedirs(logdir, exist_ok=True)
-logf = open(logdir + str(t.tm_mday) + ".log", "a")
+logf = open(f"{logdir}{t.tm_mday:02d}.log", "a")
 
 
 def log(msg: "str"):
     t = time()
-    logf.write(
-        "["
-        + str(t.tm_hour)
-        + ":"
-        + str(t.tm_min)
-        + ":"
-        + str(t.tm_sec)
-        + "] "
-        + msg
-        + "\n"
-    )
+    logf.write(f"[{t.tm_hour:02d}:{t.tm_min:02d}:{t.tm_sec:02d}] {msg}\n")
 
 
 with open("scoresys.dat", "r") as file:
@@ -151,10 +149,6 @@ with open("scoresys.dat", "r") as file:
     data = eval(data.decode())
 
 
-def pause():
-    input("按Enter键继续...")
-
-
 menu = ["保存并退出", "分数查询", "分数修改", "小组修改", "修改密码"]
 while True:
     cls()
@@ -162,12 +156,12 @@ while True:
     for i, j in enumerate(menu):
         print(f"│{i: > 4d}┆{j:\u3000<15}│")
     print("└────┴──────────────────────────────┘")
-    choose = input("请选择: \033[1m")
+    choose = In("请选择: ")
     cl()
     cls()
     if choose == "0":
         with open("scoresys.dat", "w") as file:
-            file.writelines([b64encode(key).decode() + "\n", en(key, str(data)) + "\n"])
+            file.write(f"{b64encode(key).decode()}\n{en(key, str(data))}\n")
         log("退出")
         exit(0)
     elif choose == "1":
@@ -178,19 +172,19 @@ while True:
             print(f"│{k: > 4d}┆{i: ^30}┆{j: < 5d}│")
         print("└────┴──────────────────────────────┴─────┘\n")
     elif choose == "2":
-        group = input("输入小组代号: \033[1m")
+        group = In("输入小组代号: ")
         cl()
         if group in data:
-            score = input("输入加/减分(正数加分,负数减分): \033[1m")
+            score = In("输入加/减分(正数加分,负数减分): ")
             cl()
             if (score if score[0] != "-" else score[1:]).isdecimal():
-                confirm = input("确认修改?(再次输入小组代号以确认): \033[1m")
+                confirm = In("确认修改?(再次输入小组代号以确认): ")
                 cl()
                 if confirm == group:
                     data[group] += int(score)
                     color(32)
                     print("修改成功.")
-                    log(group + "分数" + f"{int(score):+d}")
+                    log(f"{group}分数{int(score):+d}")
                 else:
                     color(33)
                     print("修改失败.")
@@ -201,28 +195,28 @@ while True:
             color(31)
             print("小组不存在!")
     elif choose == "3":
-        group = input("输入小组代号(未有小组将被创建,已有小组将被删除): \033[1m")
+        group = In("输入小组代号(未有小组将被创建,已有小组将被删除): ")
         cl()
         if group.isalnum():
             if group in data:
-                confirm = input("确认删除?(再次输入小组代号以确认): \033[1m")
+                confirm = In("确认删除?(再次输入小组代号以确认): ")
                 cl()
                 if confirm == group:
                     data.pop(group)
                     color(32)
                     print("删除成功.")
-                    log(group + "被删除")
+                    log(f"{group}被删除")
                 else:
                     color(33)
                     print("删除失败.")
             else:
-                confirm = input("确认创建?(再次输入小组代号以确认): \033[1m")
+                confirm = In("确认创建?(再次输入小组代号以确认): ")
                 cl()
                 if confirm == group:
                     data[group] = 0
                     color(32)
                     print("创建成功.")
-                    log(group + "被创建")
+                    log(f"{group}被创建")
                 else:
                     color(33)
                     print("创建失败.")
@@ -236,7 +230,7 @@ while True:
                 key = newkey
                 color(32)
                 print("密码修改成功.")
-                log("密码被修改\n当前数据:\n" + str(data))
+                log(f"密码被修改\n当前数据:\n{data}")
             else:
                 color(33)
                 print("密码修改失败.")
