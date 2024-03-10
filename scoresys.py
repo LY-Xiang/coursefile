@@ -117,10 +117,11 @@ def en(key: "bytes", dat: "str") -> str:
 
 
 def de(key: "bytes", dat: "str") -> str:
-    data= AES.new(key, AES.MODE_ECB).decrypt(b64decode(dat.encode()))
-    while data[-1]==0:
-        data=data[:-1]
+    data = AES.new(key, AES.MODE_ECB).decrypt(b64decode(dat.encode()))
+    while data[-1] == 0:
+        data = data[:-1]
     return data.decode()
+
 
 if not path.exists("scoresys.dat"):
     key = setPassword()
@@ -145,7 +146,7 @@ with open("scoresys.dat", "r") as file:
     if not checkPassword(key):
         exit(-1)
     log("登录")
-    data = eval(de(key,file.readline()[:-1]))
+    data = eval(de(key, file.readline()[:-1]))
 
 
 menu = ["保存并退出", "分数查询", "分数修改", "小组修改", "修改密码"]
