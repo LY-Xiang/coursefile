@@ -110,10 +110,10 @@ def checkPassword(key: "bytes") -> bool:
 
 
 def en(key: "bytes", dat: "str") -> str:
-    dat = dat.encode()
+    data = dat.encode()
     while len(dat) % 16 != 0:
-        dat += b"\x00"
-    return b64encode(AES.new(key, AES.MODE_ECB).encrypt(dat)).decode()
+        data += b"\x00"
+    return b64encode(AES.new(key, AES.MODE_ECB).encrypt(data)).decode()
 
 
 def de(key: "bytes", dat: "str") -> str:
