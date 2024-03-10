@@ -118,7 +118,7 @@ def en(key: "bytes", dat: "str") -> str:
 
 def de(key: "bytes", dat: "str") -> str:
     data= AES.new(key, AES.MODE_ECB).decrypt(b64decode(dat.encode()))
-    while data[-1]!=0:
+    while data[-1]==0:
         data=data[:-1]
     return data.decode()
 
