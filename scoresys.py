@@ -5,6 +5,7 @@ from ast import literal_eval as eval
 from sys import exit
 from platform import system as sys
 from time import localtime as time
+from secrets import token_bytes as salt
 
 if "win" in sys().lower():
     from ctypes import windll
@@ -46,8 +47,28 @@ def cls():
     csi("H")
 
 
+def r(msg):
+    color(31)
+    print(msg)
+    cl()
+
+
+def g(msg):
+    color(32)
+    print(msg)
+    cl()
+
+
+def y(msg):
+    color(33)
+    print(msg)
+    cl()
+
+
 def In(msg: "str") -> str:
-    return input(f"{msg}\x1b[1m")
+    i = input(f"{msg}: \x1b[1m")
+    cl()
+    return i
 
 
 def pause():
@@ -68,45 +89,37 @@ except ImportError:
         'python -m pip config set global.extra-index-url "https://mirrors.cernet.edu.cn/pypi/simple https://mirrors.cernet.edu.cn/pypi/web/simple https://mirrors.mirrorz.org/pypi/simple https://mirrors.mirrorz.org/pypi/web/simple"'
     )
     system("python -m pip install pycryptodome")
-    color(33)
     style(1)
-    print("请重新启动!")
-    cl()
+    y("请重新启动!")
     exit(0)
 
 
-def setPassword() -> bytes:
+def setPassword(s: "bytes") -> bytes:
     cls()
-    password = In("设置密码: ")
-    cl()
+    password = In("设置密码")
     for i in range(2, -1, -1):
-        check = In("确认密码: ")
-        cl()
+        check = In("确认密码")
         if check == password:
-            return hash.pbkdf2_hmac(
-                "sha256", password.encode(), b"114514hfsz1919810", 500_000
-            )
+            return hash.pbkdf2_hmac("sha256", password.encode(), s, 500_000)
         else:
-            color(31)
-            print(f"密码错误!你还有{i}次机会.")
-            cl()
+            r(f"密码错误!你还有{i}次机会.")
     return b"\0"
 
 
-def checkPassword(key: "bytes") -> bool:
+def loadData() -> tuple:
     cls()
     for i in range(2, -1, -1):
-        check = hash.pbkdf2_hmac(
-            "sha256", In("输入密码: ").encode(), b"114514hfsz1919810", 500_000
-        )
-        cl()
-        if check == key:
-            return True
+        try:
+            with open("scoresys.dat", "r") as f:
+                s, p = map(lambda i: i[:-1], f.readlines())
+                s = b64decode(s.encode())
+            k = hash.pbkdf2_hmac("sha256", In("输入密码").encode(), s, 500_000)
+            w = de(k, p)
+        except:
+            r(f"密码错误!你还有{i}次机会.")
         else:
-            color(31)
-            print(f"密码错误!你还有{i}次机会.")
-            cl()
-    return False
+            return (k, s, w)
+    return (b"\0", s, "\0")
 
 
 def en(key: "bytes", dat: "str") -> str:
@@ -124,10 +137,11 @@ def de(key: "bytes", dat: "str") -> str:
 
 
 if not path.exists("scoresys.dat"):
-    key = setPassword()
-    if key != b"\0":
-        with open("scoresys.dat", "w") as file:
-            file.write(f"{b64encode(key).decode()}\n{en(key, str({}))}\n")
+    s = salt(32)
+    k = setPassword(s)
+    if k != b"\0":
+        with open("scoresys.dat", "w") as f:
+            f.write(f"{b64encode(s).decode()}\n{en(k, str({}))}\n")
     else:
         exit(-1)
 t = time()
@@ -136,17 +150,17 @@ makedirs(logdir, exist_ok=True)
 logf = open(f"{logdir}{t.tm_mday:02d}.log", "a")
 
 
-def log(msg: "str"):
+def log(msg: "str", type: "str" = "INFO"):
     t = time()
-    logf.write(f"[{t.tm_hour:02d}:{t.tm_min:02d}:{t.tm_sec:02d}] {msg}\n")
+    logf.write(f"[{t.tm_hour:02d}:{t.tm_min:02d}:{t.tm_sec:02d}] [{type}] {msg}\n")
 
 
 with open("scoresys.dat", "r") as file:
-    key = b64decode(file.readline()[:-1].encode())
-    if not checkPassword(key):
+    k, s, d = loadData()
+    if d == "\0":
         exit(-1)
     log("登录")
-    data = eval(de(key, file.readline()[:-1]))
+    d = eval(d)
 
 
 menu = ["保存并退出", "分数查询", "分数修改", "小组修改", "修改密码"]
@@ -156,89 +170,70 @@ while True:
     for i, j in enumerate(menu):
         print(f"│{i: > 4d}┆{j:\u3000<15}│")
     print("└────┴──────────────────────────────┘")
-    choose = In("请选择: ")
-    cl()
+    choose = In("请选择")
     cls()
     if choose == "0":
         with open("scoresys.dat", "w") as file:
-            file.write(f"{b64encode(key).decode()}\n{en(key, str(data))}\n")
+            file.write(f"{b64encode(s).decode()}\n{en(k, str(d))}\n")
         log("退出")
         exit(0)
     elif choose == "1":
-        k = 0
+        l = 0
         print("┌────┬──────────────────────────────┬─────┐")
-        for i, j in sorted(data.items(), key=lambda kv: (kv[1], kv[0])):
-            k = k + 1
+        for i, j in sorted(d.items(), key=lambda kv: (kv[1], kv[0])):
+            l = l + 1
             print(f"│{k: > 4d}┆{i: ^30}┆{j: < 5d}│")
         print("└────┴──────────────────────────────┴─────┘\n")
     elif choose == "2":
-        group = In("输入小组代号: ")
-        cl()
-        if group in data:
-            score = In("输入加/减分(正数加分,负数减分): ")
-            cl()
+        group = In("输入小组代号")
+        if group in d:
+            score = In("输入加/减分(正数加分,负数减分)")
             if (score if score[0] != "-" else score[1:]).isdecimal():
-                confirm = In("确认修改?(再次输入小组代号以确认): ")
-                cl()
+                confirm = In("确认修改?(再次输入小组代号以确认)")
                 if confirm == group:
-                    data[group] += int(score)
-                    color(32)
-                    print("修改成功.")
+                    d[group] += int(score)
+                    g("修改成功.")
                     log(f"{group}分数{int(score):+d}")
                 else:
-                    color(33)
-                    print("修改失败.")
+                    y("修改失败.")
             else:
-                color(31)
-                print("分数输入不正确!")
+                r("分数输入不正确!")
         else:
-            color(31)
-            print("小组不存在!")
+            r("小组不存在!")
     elif choose == "3":
-        group = In("输入小组代号(未有小组将被创建,已有小组将被删除): ")
-        cl()
-        if group.isalnum():
-            if group in data:
-                confirm = In("确认删除?(再次输入小组代号以确认): ")
-                cl()
+        group = In("输入小组代号(未有小组将被创建,已有小组将被删除)")
+        if group.isalnum() and len(group) < 31:
+            if group in d:
+                confirm = In("确认删除?(再次输入小组代号以确认)")
                 if confirm == group:
-                    data.pop(group)
-                    color(32)
-                    print("删除成功.")
+                    d.pop(group)
+                    g("删除成功.")
                     log(f"{group}被删除")
                 else:
-                    color(33)
-                    print("删除失败.")
+                    y("删除失败.")
             else:
-                confirm = In("确认创建?(再次输入小组代号以确认): ")
-                cl()
+                confirm = In("确认创建?(再次输入小组代号以确认)")
                 if confirm == group:
-                    data[group] = 0
-                    color(32)
-                    print("创建成功.")
+                    d[group] = 0
+                    g("创建成功.")
                     log(f"{group}被创建")
                 else:
-                    color(33)
-                    print("创建失败.")
+                    y("创建失败.")
         else:
-            color(31)
-            print("小组代号不合规!(由字母和数字组成,30字符以内)")
+            r("小组代号不合规!(由字母和数字组成,30字符以内)")
     elif choose == "4":
-        if checkPassword(key):
-            newkey = setPassword()
-            if newkey != b"\0":
-                key = newkey
-                color(32)
-                print("密码修改成功.")
-                log(f"密码被修改\n当前数据:\n{data}")
+        if loadData()[0] != b"\0":
+            nk = setPassword(s)
+            if nk != b"\0":
+                k = nk
+                with open("scoresys.dat", "w") as file:
+                    file.write(f"{b64encode(s).decode()}\n{en(k, str(d))}\n")
+                g("密码修改成功.")
+                log(f"密码被修改\n当前数据:\n{d}","WARN")
             else:
-                color(33)
-                print("密码修改失败.")
+                r("密码修改失败.")
         else:
-            color(31)
-            print("密码修改失败.")
+            r("密码修改失败.")
     else:
-        color(31)
-        print("错误的选项,请重新输入!")
-    cl()
+        r("错误的选项,请重新输入!")
     pause()
