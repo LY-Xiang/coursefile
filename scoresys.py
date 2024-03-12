@@ -178,17 +178,17 @@ while True:
         log("退出")
         exit(0)
     elif choose == "1":
-        l = 0
+        no = int(0)
         print("┌────┬──────────────────────────────┬─────┐")
         for i, j in sorted(d.items(), key=lambda kv: (kv[1], kv[0])):
-            l = l + 1
-            print(f"│{k: > 4d}┆{i: ^30}┆{j: < 5d}│")
+            no = no + 1
+            print(f"│{no: > 4d}┆{i: ^30}┆{j: < 5d}│")
         print("└────┴──────────────────────────────┴─────┘\n")
     elif choose == "2":
         group = In("输入小组代号")
         if group in d:
             score = In("输入加/减分(正数加分,负数减分)")
-            if (score if score[0] != "-" else score[1:]).isdecimal():
+            if (score if score[0] != "-" else score[1:]).isdecimal() if len(score)>0 else False:
                 confirm = In("确认修改?(再次输入小组代号以确认)")
                 if confirm == group:
                     d[group] += int(score)
@@ -229,7 +229,7 @@ while True:
                 with open("scoresys.dat", "w") as file:
                     file.write(f"{b64encode(s).decode()}\n{en(k, str(d))}\n")
                 g("密码修改成功.")
-                log(f"密码被修改\n当前数据:\n{d}","WARN")
+                log(f"密码被修改\n当前数据:\n{d}", "WARN")
             else:
                 r("密码修改失败.")
         else:
