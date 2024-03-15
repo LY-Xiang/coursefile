@@ -9,3 +9,6 @@ test.*
 tests/
 logs/
 *.log
+build/
+dist/
+*.spec
