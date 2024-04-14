@@ -12,3 +12,4 @@ logs/
 build/
 dist/
 *.spec
+.git/
