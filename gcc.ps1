@@ -1,39 +1,20 @@
-#å®‰è£…VSCode
-Invoke-WebRequest 'https://code.visualstudio.com/sha/download?build=stable&os=win32-x64' -OutFile './vsc.exe'#ä¸‹è½½vsc
-if ([System.IO.File]::Exists('./vsc.exe')){
-    ./vsc.exe#å®‰è£…vsc
-}
-Remove-Item ./vsc.exe#åˆ é™¤å®‰è£…åŒ…
+# °²×°VSCode
+Invoke-WebRequest 'https://code.visualstudio.com/sha/download?build=stable&os=win32-x64' -OutFile './vsc.exe' # ÏÂÔØvsc
+Remove-Item ./vsc.exe # É¾³ı°²×°°ü
 
-#é…ç½®VSCode
+# ÅäÖÃVSCode
 
-#å®‰è£…msys2
-Invoke-WebRequest 'https://mirrors.tuna.tsinghua.edu.cn/msys2/distrib/msys2-x86_64-latest.exe' -OutFile './msys2.exe'#ä¸‹è½½msys2
-if([System.IO.File]::Exists('./msys2.exe')){
-    ./msys2.exe in --confirm-command --accept-messages --root C:/msys64#å®‰è£…msys2
-}
-Remove-Item ./msys2.exe#åˆ é™¤msys2å®‰è£…åŒ…
+# °²×°msys2
+Invoke-WebRequest 'https://mirrors.tuna.tsinghua.edu.cn/msys2/distrib/msys2-x86_64-latest.exe' -OutFile './msys2.exe' # ÏÂÔØmsys2
+Remove-Item ./msys2.exe # É¾³ımsys2°²×°°ü
 
-#è®¾ç½®msys2ç¯å¢ƒå˜é‡
+# ÉèÖÃmsys2»·¾³±äÁ¿
 $env:CHERE_INVOKING = 'yes'
 $env:MSYSTEM = 'UCRT64'
 
-#å®‰è£…gcc&clang
-C:/msys64/usr/bin/bash.exe -lc 'printf "\nexport LANG=zh_CN.UTF-8" >> .bashrc'#è®¾ç½®ä¸­æ–‡
-C:/msys64/usr/bin/bash.exe -lc 'sed -i "s#https\?://mirror.msys2.org/#https://mirrors.tuna.tsinghua.edu.cn/msys2/#g" /etc/pacman.d/mirrorlist*'#è®¾ç½®æ¸…åé•œåƒæº
-C:/msys64/usr/bin/bash.exe -lc 'pacman --noconfirm -Syuu'#å…¨é¢æ›´æ–°
-C:/msys64/usr/bin/bash.exe -lc 'pacman --noconfirm -Syuu --needed base-devel mingw-w64-ucrt-x86_64-toolchain'#æ›´æ–°å¹¶å®‰è£…gcc
-C:/msys64/usr/bin/bash.exe -lc 'pacman --noconfirm -S clang'#å®‰è£…clang
-C:/msys64/usr/bin/bash.exe -lc 'pacman --noconfirm -Scc'#æ¸…ç†å®‰è£…ç¼“å­˜
-
-#å®‰è£…python
-Invoke-WebRequest 'https://mirror.bjtu.edu.cn/python/3.13.0/python-3.13.0a2-amd64.exe' -OutFile './py.exe'#ä¸‹è½½python
-if([System.IO.File]::Exists('./py.exe')){
-    ./py.exe#å®‰è£…py
-}
-Remove-Item ./py.exe#åˆ é™¤å®‰è£…åŒ…
-
-#pip
-python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip#ä¸´æ—¶åˆ©ç”¨æ¸…åæºå‡çº§pip
-python3 -m pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple#è®¾ç½®pipæ¸…åæº
-python3 -m pip config set global.extra-index-url "https://pypi.org/simple/"#åŸç”Ÿå¤‡ç”¨
+# °²×°gcc&clang
+C:/msys64/usr/bin/bash.exe -lc 'printf "\nexport LANG=zh_CN.UTF-8" >> .bashrc' # ÉèÖÃÖĞÎÄ
+C:/msys64/usr/bin/bash.exe -lc 'sed -i "s#https\?://mirror.msys2.org/#https://mirrors.tuna.tsinghua.edu.cn/msys2/#g" /etc/pacman.d/mirrorlist*' # ÉèÖÃÇå»ª¾µÏñÔ´
+C:/msys64/usr/bin/bash.exe -lc 'pacman --noconfirm -Syyuu' # È«Ãæ¸üĞÂ
+C:/msys64/usr/bin/bash.exe -lc 'pacman --noconfirm -Syuu {mingw-w64-ucrt-x86_64-toolchain,zsh}' # ¸üĞÂ²¢°²×°ËùĞè×ÊÔ´
+C:/msys64/usr/bin/bash.exe -lc 'pacman --noconfirm -Scc' # ÇåÀí°²×°»º´æ
