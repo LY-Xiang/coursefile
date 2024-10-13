@@ -1,0 +1,109 @@
+core_normal.o: core_normal.cpp \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/stdio.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/features.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/stdc-predef.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/predefs.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/sys/cdefs.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/wordsize.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs-hard.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/4.7.2/include/stddef.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/types.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/typesizes.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/libio.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/_G_config.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/wchar.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/4.7.2/include/stdarg.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/stdio_lim.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/sys_errlist.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/stdio.h \
+ ../../include/dosbox.h ../../config.h ../../include/logging.h \
+ ../../include/mem.h ../../include/cpu.h ../../include/regs.h lazyflags.h \
+ ../../include/regs.h ../../include/inout.h ../../include/callback.h \
+ ../../include/pic.h ../../include/fpu.h ../../include/paging.h \
+ instructions.h core_normal/support.h core_normal/helpers.h \
+ core_normal/table_ea.h core_normal/../modrm.h core_normal/string.h \
+ core_normal/prefix_none.h core_normal/prefix_0f.h \
+ core_normal/prefix_66.h core_normal/prefix_66_0f.h
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/stdio.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/features.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/stdc-predef.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/predefs.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/sys/cdefs.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/wordsize.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs-hard.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/4.7.2/include/stddef.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/types.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/typesizes.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/libio.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/_G_config.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/wchar.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/4.7.2/include/stdarg.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/stdio_lim.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/sys_errlist.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/stdio.h:
+
+../../include/dosbox.h:
+
+../../config.h:
+
+../../include/logging.h:
+
+../../include/mem.h:
+
+../../include/cpu.h:
+
+../../include/regs.h:
+
+lazyflags.h:
+
+../../include/regs.h:
+
+../../include/inout.h:
+
+../../include/callback.h:
+
+../../include/pic.h:
+
+../../include/fpu.h:
+
+../../include/paging.h:
+
+instructions.h:
+
+core_normal/support.h:
+
+core_normal/helpers.h:
+
+core_normal/table_ea.h:
+
+core_normal/../modrm.h:
+
+core_normal/string.h:
+
+core_normal/prefix_none.h:
+
+core_normal/prefix_0f.h:
+
+core_normal/prefix_66.h:
+
+core_normal/prefix_66_0f.h:

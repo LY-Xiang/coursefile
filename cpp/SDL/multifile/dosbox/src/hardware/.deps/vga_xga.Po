@@ -1,0 +1,110 @@
+vga_xga.o: vga_xga.cpp \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/string.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/features.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/stdc-predef.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/predefs.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/sys/cdefs.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/wordsize.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs-hard.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/4.7.2/include/stddef.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/xlocale.h \
+ ../../include/dosbox.h ../../config.h ../../include/logging.h \
+ ../../include/inout.h ../../include/vga.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/math.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/huge_val.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/huge_valf.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/huge_vall.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/inf.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/nan.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/mathdef.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/mathcalls.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/mathinline.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/stdio.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/types.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/typesizes.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/libio.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/_G_config.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/wchar.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/4.7.2/include/stdarg.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/stdio_lim.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/sys_errlist.h \
+ /home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/stdio.h \
+ ../../include/callback.h ../../include/mem.h ../../include/cpu.h \
+ ../../include/regs.h
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/string.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/features.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/stdc-predef.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/predefs.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/sys/cdefs.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/wordsize.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/gnu/stubs-hard.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/4.7.2/include/stddef.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/xlocale.h:
+
+../../include/dosbox.h:
+
+../../config.h:
+
+../../include/logging.h:
+
+../../include/inout.h:
+
+../../include/vga.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/math.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/huge_val.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/huge_valf.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/huge_vall.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/inf.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/nan.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/mathdef.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/mathcalls.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/mathinline.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/stdio.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/types.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/typesizes.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/libio.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/_G_config.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/wchar.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/4.7.2/include/stdarg.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/stdio_lim.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/sys_errlist.h:
+
+/home/n0n3m4/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/bits/stdio.h:
+
+../../include/callback.h:
+
+../../include/mem.h:
+
+../../include/cpu.h:
+
+../../include/regs.h:

@@ -1,0 +1,15 @@
+.vscode/
+__pycache__/
+exec/
+*.dat
+*.in
+*.out
+*.exe
+test.*
+tests/
+logs/
+*.log
+build/
+dist/
+*.spec
+.git/
