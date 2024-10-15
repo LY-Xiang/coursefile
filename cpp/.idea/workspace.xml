@@ -9,9 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9ebb2cc-353e-4381-b93c-8d40238e21fe" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/main.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.hpp" afterDir="false" />
-    </list>
+    <list default="true" id="e9ebb2cc-353e-4381-b93c-8d40238e21fe" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,12 +27,15 @@
     &quot;assignee&quot;: &quot;hfsz2319&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/hfsz2319/SourceFiles.git&quot;,
-    &quot;accountId&quot;: &quot;0c302761-2658-45d8-b891-85fdd6b2cbcf&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/LY-XiangS/SourceFiles.git",
+    "accountId": "0c302761-2658-45d8-b891-85fdd6b2cbcf"
   }
-}</component>
+}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/hw.cpp" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -80,8 +81,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="C/C++ 文件.main.cpp - MinGWw64-msys2" />
       <item itemvalue="CMake 应用程序.未命名" />
+      <item itemvalue="C/C++ 文件.main.cpp - MinGWw64-msys2" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
@@ -98,6 +99,7 @@
       <workItem from="1727400729681" duration="96000" />
       <workItem from="1727422474100" duration="54000" />
       <workItem from="1727422720396" duration="237000" />
+      <workItem from="1728899336163" duration="225000" />
     </task>
     <servers />
   </component>
