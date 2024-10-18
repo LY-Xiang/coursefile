@@ -27,12 +27,12 @@
     &quot;assignee&quot;: &quot;hfsz2319&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/LY-XiangS/SourceFiles.git",
-    "accountId": "0c302761-2658-45d8-b891-85fdd6b2cbcf"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/LY-XiangS/SourceFiles.git&quot;,
+    &quot;accountId&quot;: &quot;0c302761-2658-45d8-b891-85fdd6b2cbcf&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/hw.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -100,6 +100,7 @@
       <workItem from="1727422474100" duration="54000" />
       <workItem from="1727422720396" duration="237000" />
       <workItem from="1728899336163" duration="225000" />
+      <workItem from="1729051061152" duration="37000" />
     </task>
     <servers />
   </component>
